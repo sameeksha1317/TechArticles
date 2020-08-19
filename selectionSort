@@ -1,0 +1,116 @@
+# Selection Sort
+
+
+## Explanation
+
+Selection sort is a quiet simple sorting algorithm. This algorithm is an in-place comparison-based algorithm in which the list  imaginarily divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part will be empty and the entire list will be considered as unsorted array.
+
+In very first iteration for sorting the array, the minimal element in the unsorted array, is searched and then swapped with the element that is currently located at the first position. Then, in the second iteration, the minimum element in the remaining unsorted portion is searched and put in the second position from left that is the end of sorted array, to make it as a part of the sorted one. This process continues till our whole array become sorted completely, and then algorithm stops its working.
+
+The foremost thing about this algorithm is, it is specifically not suitable for large data sets because of its bad average and worst case complexities.
+
+Let's take a glance on its procedure by the following image and its explanation, which illustrates how the Selection sort algorithm iterates over the values to sort them.
+
+![image](https://i.ibb.co/wpMjQV4/selection-sort2.jpg)
+The first value of the list i.e, 23 is compared with the rest of the values to check if it is the minimum.
+
+As 8 is the minimum value amidst all, so the positions of 23 and 8 get swapped. In the figure, the values with a blue background represent the sorted partition of the list.
+
+Continuing further, the first value from the unsorted part 78 is compared with the rest of the unsorted values to find out if a lower value exists.
+
+We got 23 as the minimum value, and it get swapped with 78 to maintain its position in the sorted side.
+
+After that, the first element of the unsorted list is 45 which is compared with the rest to find out the minimum item among the unsorted items.
+
+As 32 is the minimum value, so it get shifted to the sorted blue region and maintains its position.
+
+Stepping further, the value 78 is compared with the rest of the values and get swapped by the least number that is 45 of the unsorted list.
+
+Finally, only two items left out in the unsorted part. Moreover the value 56 is lower than 78, so their positions get swapped to produce the sorted list.
+
+Eventually, we only have one value left in the unsorted partition. Therefore, we can say it is sorted.
+ 
+### Advantage of Selection sort
+
+**Here are some of the advantages of the selection sort:**
+
+*i).* Its  performance proved very smooth on short lists.
+*ii).* It is also called in-place algorithm. Also it does not require much space for sorting the collection. Only a single extra space get required during the swapping process of sorting the lists.
+*iii).* It performs very well on items that have already been sorted.
+
+### Disadvantage of Selection sort
+
+**Here are some of the disadvantages of the selection sort:**
+
+*i).* It performs poorly when it gets long lists to sort.
+*ii).* The total number of iterations made during the sorting is n-squared, where n is the total number of elements in the list, which is very bad in the context of time complexity.
+*iii).*There are many algorithm other than Selection sort which perform the sorting better than it. 
+
+
+##  Implementation
+
+The following program returns the array "arr" in the sorted format:
+
+```
+
+public static int[] SelectionSort(int[] arr){
+      for(int counter=0; counter < arr.length-1; counter++){
+             int min = counter;
+                   for(int j = min+1; j<=arr.length-1; j++){
+                          if(arr[j] < arr[min]{
+                          min = j;
+                    }
+             if(min != counter){
+             int temp = arr[min];
+             arr[min] = arr[counter];
+             arr[counter] = temp;
+              }
+      }
+      return arr;
+}
+
+```
+
+Calling the function "SelectionSort" and later the function "print":
+```
+
+int[] arr ={23, 78, 45, 8, 32, 56};
+int[] answer = SelectionSort( arr );
+print( answer);
+
+```
+
+Function "print" to print the Sorted Array:
+```
+
+public static void print(int[] answer){
+    for(int i=0 ; i<answer.length; i++){
+          System.out.print(answer[i]+" ");
+     }
+}
+
+```
+Output will be like:
+```
+8 23 32 45 56 78
+```
+
+## Time Complexity
+
+We can analyze the time complexity of the Selection sort algorithm by simply observing the number of loops it contains. It's complexity is categorized in three cases:
+*i)*. Worst Case Complexity: O(n^2)
+ If we want to sort the list in ascending order and it is given in strictly descending order then, this case will be considered as worst case.
+
+*ii)*. Best Case Complexity: O(n^2)
+ It occurs when the given array is already sorted.
+
+*iii)*. Average Case Complexity: O(n^2)
+It occurs when the elements of the given array are in random order i.e, neither ascending nor descending completely.
+
+   **where "n" is the total number of elements present in the array.**
+
+
+## Space Complexity
+
+Space complexity of Selection sort is O(1) as it only requires one extra memory space for the temporary variable which requires during its swapping process.
+    
